@@ -21,7 +21,7 @@ def run():
     elif op == "**":
         try:
             print(f"Result: {power(a, b)}")
-        except ZeroDivisionError as e:
+        except (ZeroDivisionError, OverflowError) as e:
             print(f"Error: {e}")
     elif op == "%":
         try:
