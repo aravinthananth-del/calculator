@@ -19,7 +19,10 @@ def run():
         except ValueError as e:
             print(f"Error: {e}")
     elif op == "**":
-        print(f"Result: {power(a, b)}")
+        try:
+            print(f"Result: {power(a, b)}")
+        except ZeroDivisionError as e:
+            print(f"Error: {e}")
     elif op == "%":
         try:
             print(f"Result: {modulo(a, b)}")
