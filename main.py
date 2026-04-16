@@ -1,11 +1,11 @@
-from calculator import add, subtract, multiply, divide
+from calculator import add, subtract, multiply, divide, power, modulo
 
 def run():
     print("Simple Calculator")
     print("-----------------")
     a = float(input("Enter first number: "))
     b = float(input("Enter second number: "))
-    op = input("Enter operation (+, -, *, /): ")
+    op = input("Enter operation (+, -, *, /, **, %): ")
 
     if op == "+":
         print(f"Result: {add(a, b)}")
@@ -16,6 +16,16 @@ def run():
     elif op == "/":
         try:
             print(f"Result: {divide(a, b)}")
+        except ValueError as e:
+            print(f"Error: {e}")
+    elif op == "**":
+        try:
+            print(f"Result: {power(a, b)}")
+        except (ZeroDivisionError, OverflowError) as e:
+            print(f"Error: {e}")
+    elif op == "%":
+        try:
+            print(f"Result: {modulo(a, b)}")
         except ValueError as e:
             print(f"Error: {e}")
     else:
